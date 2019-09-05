@@ -1,0 +1,58 @@
+/dts-v1/;
+
+#include "imx6q.dtsi"
+#include "imx6qdl-phytec-phycore-som.dtsi"
+#include "imx6qdl-phytec-mira.dtsi"
+
+#include "peb-eval-01.dtsi"
+
+/ {
+	model = "PHYTEC phyBOARD-Mira Low Cost with NAND";
+	compatible = "phytec,imx6q-pbac06-nand", "phytec,imx6q-pbac06", "phytec,imx6qdl-pcm058", "fsl,imx6q";
+
+	chosen {
+		linux,stdout-path = &uart2;
+	};
+};
+
+// phyCORE-i.MX 6
+
+&fec {
+	status = "okay";
+};
+
+// phyBOARD-Mira
+
+&gpio_leds {
+	status = "okay";
+};
+
+// &i2c1 {
+// 	status = "okay";
+// };
+
+// &i2c_rtc {
+// 	status = "okay";
+// };
+
+&usbh1 {
+	status = "okay";
+};
+
+&usbotg {
+	status = "okay";
+};
+
+&usdhc1 {
+	status = "okay";
+};
+
+// PEB-EVAL-01
+
+&buttons {
+	status = "okay";
+};
+
+&leds {
+	status = "okay";
+};

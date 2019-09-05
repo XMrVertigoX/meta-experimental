@@ -1,0 +1,62 @@
+#include <dt-bindings/input/input.h>
+
+/ {
+	buttons: buttons {
+		compatible = "gpio-key";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_buttons>;
+		status = "disabled";
+
+		button_s2 {
+			label = "S2";
+			gpios = <&gpio6 18 GPIO_ACTIVE_LOW>;
+		};
+
+		button_s3 {
+			label = "S3";
+			gpios = <&gpio5 28 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	leds: leds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_leds>;
+		status = "disabled";
+
+		led_d1 {
+			label = "D1";
+			gpios = <&gpio7 1 GPIO_ACTIVE_HIGH>;
+			panic-indicator;
+		};
+
+		led_d2 {
+			label = "D2";
+			gpios = <&gpio7 0 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "mmc0";
+		};
+
+		led_d3 {
+			label = "D3";
+			gpios = <&gpio5 29 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "heartbeat";
+		};
+	};
+};
+
+&iomuxc {
+	pinctrl_buttons: userbuttonsgrp {
+		fsl,pins = <
+			MX6QDL_PAD_SD3_DAT6__GPIO6_IO18   0x1b0b0
+			MX6QDL_PAD_CSI0_DAT10__GPIO5_IO28 0x1b0b0
+		>;
+	};
+
+	pinctrl_leds: userledsgrp {
+		fsl,pins = <
+			MX6QDL_PAD_SD3_DAT4__GPIO7_IO01   0x1b0b0
+			MX6QDL_PAD_SD3_DAT5__GPIO7_IO00   0x1b0b0
+			MX6QDL_PAD_CSI0_DAT11__GPIO5_IO29 0x1b0b0
+		>;
+	};
+};
