@@ -1,0 +1,9 @@
+CONF_VERSION = "1"
+
+DL_DIR = "/var/tmp/yocto/downloads"
+SSTATE_DIR = "/var/tmp/yocto/sstate-cache"
+
+DISTRO = "poky-hubris"
+MACHINE = "phyboard-mira-imx6-hubris"
+
+ACCEPT_FSL_EULA = "1"
