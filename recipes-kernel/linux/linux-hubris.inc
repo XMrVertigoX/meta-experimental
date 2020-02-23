@@ -7,9 +7,9 @@ SRC_URI = " \
 	file://peb-eval-01.dtsi \
 	"
 
-S = "${WORKDIR}/git"
+SRCREV = "${AUTOREV}"
 
-COMPATIBLE_MACHINE = "phyboard-mira-imx6-hubris"
+S = "${WORKDIR}/git"
 
 do_unpack_defconfig() {
 	install --target-directory=${S}/arch/arm/configs \
